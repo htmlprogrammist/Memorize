@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        return ZStack(alignment: .center, content: {
+        return ZStack(alignment: .center) {
             // Это функция
             RoundedRectangle(cornerRadius: 25)
                 .stroke(lineWidth: 2.0)
 
             Text("Hello, world!")
                 .font(.title)
-        })
+        }
         .padding(.horizontal)
         .foregroundColor(/*@START_MENU_TOKEN@*/.orange/*@END_MENU_TOKEN@*/)
         
