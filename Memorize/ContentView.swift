@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        return ZStack(content: {
+        return ZStack(alignment: .center, content: {
             // Это функция
             RoundedRectangle(cornerRadius: 25)
                 .stroke(lineWidth: 2.0)
