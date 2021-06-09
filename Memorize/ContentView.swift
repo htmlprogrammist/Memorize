@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var count = 0;
+    @State private var count = 0; var flag = true;
     
     var body: some View {
         VStack {
             Text("You have clicked \(count) times")
+                .padding()
             Button(action: {count += 1}) {
                 Text("Button")
+                    .padding()
             }
         }
     }
