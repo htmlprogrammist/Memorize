@@ -9,18 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        return ZStack {
-            // Это функция
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(lineWidth: 2.0)
-
-            Text("Hello, world!")
-                .font(.title)
+        HStack {
+            CardView()
+            CardView()
+            CardView()
+            CardView()
         }
         .padding(.horizontal)
         .foregroundColor(/*@START_MENU_TOKEN@*/.orange/*@END_MENU_TOKEN@*/)
-        
+    }
+}
 
+struct CardView: View {
+    var body: some View {
+        ZStack {
+            // Это функция
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(lineWidth: 2.0)
+            Text("Hello, world!")
+        }
     }
 }
 
