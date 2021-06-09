@@ -8,16 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var count = 0; var flag = true;
-    
     var body: some View {
-        VStack {
-            Text("You have clicked \(count) times")
-                .padding()
-            Button(action: {count += 1}) {
-                Text("Button")
-                    .padding()
-            }
+        HStack {
+            CardView()
+            CardView()
+            CardView()
+            CardView()
+        }
+        .padding(.horizontal)
+        .foregroundColor(/*@START_MENU_TOKEN@*/.orange/*@END_MENU_TOKEN@*/)
+    }
+}
+
+struct CardView: View {
+    var body: some View {
+        ZStack {
+            // Это функция
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(lineWidth: 2.0)
+            Text("Hello, world!")
         }
     }
 }
