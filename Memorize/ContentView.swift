@@ -8,31 +8,79 @@
 import SwiftUI
 
 struct ContentView: View {
+    // var emojis: Array<String> = ["🚗", "🚎", "🏎", "🚄"]  // массив с объектами внутри с типом Строка
+    var emojis = ["🚗", "🚕", "🚙", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🚚", "🚛", "🚜", "🛴", "🚲", "🛵", "🏍", "🛺", "🚄", "🛩", "🚀", "🛸", "🚁", "⛵️", "🛳"]
+    @State var emojiCount = 4
+
     var body: some View {
-        HStack {
-            CardView()
-            CardView()
-            CardView()
-            CardView()
+        VStack {
+            HStack {
+                ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
+                    CardView(content: emoji)
+                }
+            }
+            Spacer()
+            HStack {
+                remove
+                Spacer()
+                add
+            }
+            .padding(.horizontal)
+            .font(.largeTitle)
         }
         .padding(.horizontal)
-        .foregroundColor(/*@START_MENU_TOKEN@*/.orange/*@END_MENU_TOKEN@*/)
+        .foregroundColor(.red)
+    }
+
+    var remove: some View {
+        Button(action: {
+            if emojiCount > 1 {
+                emojiCount -= 1
+            }
+        }, label: {
+            VStack {
+                Image(systemName: "minus.circle")
+            }
+        })
+    }
+    var add: some View {
+        Button(action: {
+            if emojiCount < emojis.count {
+                emojiCount += 1
+            }
+        }, label: {
+            VStack {
+                Image(systemName: "plus.circle")
+            }
+        })
     }
 }
 
 struct CardView: View {
+    @State var isFaceUp: Bool = true
+    var content: String
     var body: some View {
         ZStack {
-            // Это функция
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(lineWidth: 2.0)
-            Text("Hello, world!")
+            let shape = RoundedRectangle(cornerRadius: 20)
+            if isFaceUp {
+                shape.fill().foregroundColor(.white)
+                shape.stroke(lineWidth: 2.0)
+                Text(content).font(.largeTitle)
+            } else {
+                shape.fill()
+            }
         }
+        .onTapGesture(perform: {
+            isFaceUp = !isFaceUp
+        })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
+        ContentView()
+            .preferredColorScheme(.light)
     }
 }
