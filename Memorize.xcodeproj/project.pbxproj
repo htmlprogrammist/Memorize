@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F68F209B2674E6C200D18CD4 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68F209A2674E6C200D18CD4 /* MemoryGame.swift */; };
 		F6D84A2E266100B9003AD245 /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D84A2D266100B9003AD245 /* MemorizeApp.swift */; };
 		F6D84A30266100B9003AD245 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D84A2F266100B9003AD245 /* ContentView.swift */; };
 		F6D84A32266100BC003AD245 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6D84A31266100BC003AD245 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F68F209A2674E6C200D18CD4 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		F6D84A2A266100B9003AD245 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D84A2D266100B9003AD245 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		F6D84A2F266100B9003AD245 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				F6D84A2D266100B9003AD245 /* MemorizeApp.swift */,
 				F6D84A2F266100B9003AD245 /* ContentView.swift */,
+				F68F209A2674E6C200D18CD4 /* MemoryGame.swift */,
 				F6D84A31266100BC003AD245 /* Assets.xcassets */,
 				F6D84A36266100BC003AD245 /* Info.plist */,
 				F6D84A33266100BC003AD245 /* Preview Content */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F68F209B2674E6C200D18CD4 /* MemoryGame.swift in Sources */,
 				F6D84A30266100B9003AD245 /* ContentView.swift in Sources */,
 				F6D84A2E266100B9003AD245 /* MemorizeApp.swift in Sources */,
 			);
