@@ -7,22 +7,31 @@
 
 import Foundation
 
-struct MemoryGame<CardContent> {
+struct MemoryGame<CardContent> where CardContent: Equatable{
     // var cards: Array<MemoryGame.Card>  // то же самое, просто из-за того, что мы и так внутри структуры MemoryGame, это не обязательно писать. В остальных случаях, естественно, надо
     private(set) var cards: Array<Card>
     
-    mutating func chooseCard(_ card: Card) {
-        let chosenIndex = index(of: card)
-        cards[chosenIndex].isFaceUp.toggle()
-    }
+    private var indexOfTheOneAndOnlyFacedUpCard: Int?
     
-    func index(of card: Card) -> Int {
-        for index in 0..<cards.count {
-            if cards[index].id == card.id {
-                return index
+    mutating func chooseCard(_ card: Card) {
+        if let chosenIndex = cards.firstIndex(where: {$0.id == card.id}),  // $0.id equals 'That card's id'
+           !cards[chosenIndex].isFaceUp,
+           !cards[chosenIndex].isMatched {
+            if let potentialMatchIndex = indexOfTheOneAndOnlyFacedUpCard {
+                if cards[chosenIndex].content == cards[potentialMatchIndex].content {
+                    cards[chosenIndex].isMatched = true
+                    cards[potentialMatchIndex].isMatched = true
+                }
+                indexOfTheOneAndOnlyFacedUpCard = nil
+            } else {
+                for index in cards.indices {
+                    cards[index].isFaceUp = false
+                }
+                indexOfTheOneAndOnlyFacedUpCard = chosenIndex
             }
+            
+            cards[chosenIndex].isFaceUp.toggle()
         }
-        return 0  // bogus!
     }
     
     init(numberOfPairsOfCards: Int, createCardContent: (Int) -> CardContent) {
